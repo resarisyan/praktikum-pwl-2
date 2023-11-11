@@ -32,6 +32,8 @@ Route::middleware('auth')->group(function () {
         'as' => 'bookshelf.'
     ], function(){
         Route::get('/', [BookshelfController::class, 'index'])->name('index');
+        Route::get('/create', [BookshelfController::class, 'create'])->name('create');
+        Route::post('/', [BookshelfController::class, 'store'])->name('store');
     });
 });
 

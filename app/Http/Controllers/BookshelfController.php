@@ -9,6 +9,10 @@ class BookshelfController extends Controller
 {
     public function index(){
         $data['bookshelves'] = Bookshelf::all();
-        dd($data);
+        return view('bookshelves.index')->with($data);
+    }
+
+    public function create(){
+        return view('bookshelves.create');
     }
 }
