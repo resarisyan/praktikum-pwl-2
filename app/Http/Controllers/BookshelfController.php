@@ -15,4 +15,12 @@ class BookshelfController extends Controller
     public function create(){
         return view('bookshelves.create');
     }
+
+    public function store(Request $request){
+       Bookshelf::create([
+        'name' => $request->name,
+        'code' => $request->code
+       ]);
+       return redirect()->route('bookshelf.index');
+    }
 }
