@@ -27,4 +27,19 @@ class BookshelfController extends Controller
         ];
        return redirect()->route('bookshelf.index')->with($notification);
     }
+
+    public function edit($id){
+        $data['bookshelf'] = Bookshelf::findOrFail($id);
+        return view('bookshelves.edit')->with($data);
+    }
+
+    public function update(Request $request, $id){
+        $data = Bookshelf::findOrFail($id);
+        $data->update($request->all());
+        $notification = [
+            'message' => 'Data bookshelf berhasil diupdate',
+            'alert-type' => 'success'
+        ];
+        return redirect()->route('bookshelf.index')->with($notification);
+    }
 }
