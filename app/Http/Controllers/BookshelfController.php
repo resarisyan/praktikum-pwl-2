@@ -42,4 +42,14 @@ class BookshelfController extends Controller
         ];
         return redirect()->route('bookshelf.index')->with($notification);
     }
+
+    public function destroy($id){
+        $data = Bookshelf::findOrFail($id);
+        $data->delete();
+        $notification = [
+            'message' => 'Data bookshelf berhasil didelete',
+            'alert-type' => 'success'
+        ];
+        return redirect()->route('bookshelf.index')->with($notification);
+    }
 }

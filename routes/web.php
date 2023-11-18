@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/', [BookshelfController::class, 'store'])->name('store');
         Route::get('/edit/{id}', [BookshelfController::class, 'edit'])->name('edit');
         Route::put('/{id}', [BookshelfController::class, 'update'])->name('update');
+        Route::delete('/{id}', [BookshelfController::class, 'destroy'])->name('destroy');
     });
 });
 
