@@ -21,6 +21,10 @@ class BookshelfController extends Controller
         'name' => $request->name,
         'code' => $request->code
        ]);
-       return redirect()->route('bookshelf.index');
+       $notification = [
+        'message' => 'Data bookshelf berhasil ditambahkan',
+        'alert-type' => 'success'
+        ];
+       return redirect()->route('bookshelf.index')->with($notification);
     }
 }
